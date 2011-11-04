@@ -62,6 +62,7 @@ _CIVICRM6=EDIT_CIVICRM6
 _CIVICRM7=EDIT_CIVICRM7
 _VIDEOLA=EDIT_VIDEOLA
 _OPENCHURCH=EDIT_OPENCHURCH
+_ACQUIA_SEVEN=EDIT_ACQUIA_SEVEN
 
 
 ###---### main config
@@ -512,28 +513,38 @@ fi
 #if [ ! -e "$_ROOT/config/includes/nginx_advanced_force.log.$_INSTALLER_VERSION" ] ; then
   msg "$_STATUS A: Force advanced Nginx config, please wait..."
   mrun "sleep 3"
+  _REL_VERSION=`lsb_release -sc`
+  if [ "$_REL_VERSION" = "precise" ] ; then
+    _OCT_NGX=nginx_octopus_noup_include.conf
+    _ADV_NGX=nginx_advanced_noup_include.conf
+  else
+    _OCT_NGX=nginx_octopus_include.conf
+    _ADV_NGX=nginx_advanced_include.conf
+  fi
   cd $_ROOT/config/includes
   mv -f nginx_simple_include.conf nginx_simple_include.conf-$_NOW
   mv -f nginx_advanced_include.conf nginx_advanced_include.conf-$_NOW
   if [ $_USE_SPEED_BOOSTER = "YES" ] ; then
-    cp -af /opt/tmp/$_BOA_REPO_NAME/aegir/conf/nginx_octopus_include.conf ./
-    cp -af nginx_octopus_include.conf nginx_simple_include.conf &> /dev/null
-    cp -af nginx_octopus_include.conf nginx_advanced_include.conf &> /dev/null
+    cp -af /opt/tmp/$_BOA_REPO_NAME/aegir/conf/$_OCT_NGX ./
+    cp -af $_OCT_NGX nginx_simple_include.conf &> /dev/null
+    cp -af $_OCT_NGX nginx_advanced_include.conf &> /dev/null
   else
-    cp -af /opt/tmp/$_BOA_REPO_NAME/aegir/conf/nginx_advanced_include.conf ./
-    cp -af nginx_advanced_include.conf nginx_simple_include.conf &> /dev/null
+    cp -af /opt/tmp/$_BOA_REPO_NAME/aegir/conf/$_ADV_NGX ./
+    cp -af $_ADV_NGX nginx_simple_include.conf &> /dev/null
+    cp -af $_ADV_NGX nginx_advanced_include.conf &> /dev/null
   fi
   chown $_USER:$_USRG * &> /dev/null
   cd $_ROOT/.drush/provision/http/nginx
   rm -f nginx_simple_include.conf
   rm -f nginx_advanced_include.conf
   if [ $_USE_SPEED_BOOSTER = "YES" ] ; then
-    cp -af /opt/tmp/$_BOA_REPO_NAME/aegir/conf/nginx_octopus_include.conf ./
-    cp -af nginx_octopus_include.conf nginx_simple_include.conf &> /dev/null
-    cp -af nginx_octopus_include.conf nginx_advanced_include.conf &> /dev/null
+    cp -af /opt/tmp/$_BOA_REPO_NAME/aegir/conf/$_OCT_NGX ./
+    cp -af $_OCT_NGX nginx_simple_include.conf &> /dev/null
+    cp -af $_OCT_NGX nginx_advanced_include.conf &> /dev/null
   else
-    cp -af /opt/tmp/$_BOA_REPO_NAME/aegir/conf/nginx_advanced_include.conf ./
-    cp -af nginx_advanced_include.conf nginx_simple_include.conf &> /dev/null
+    cp -af /opt/tmp/$_BOA_REPO_NAME/aegir/conf/$_ADV_NGX ./
+    cp -af $_ADV_NGX nginx_simple_include.conf &> /dev/null
+    cp -af $_ADV_NGX nginx_advanced_include.conf &> /dev/null
   fi
   chown $_USER:$_USRG * &> /dev/null
   echo "$_NOW" >> $_ROOT/config/includes/nginx_advanced_force.log.$_INSTALLER_VERSION
@@ -827,9 +838,9 @@ mrun "sleep 3"
       ln -s $_ROOT/distro/$_THIS_CORE/acquia-$_SMALLCORE6/sites /home/$_USERFTP/platforms/$_THIS_CORE/acquia-$_SMALLCORE6
     fi
   fi
-  if [ -d "$_ROOT/distro/$_THIS_CORE/acquia-$_SMALLCORE7/sites" ] ; then
-    if [ ! -L "/home/$_USERFTP/platforms/$_THIS_CORE/acquia-$_SMALLCORE7" ] ; then
-      ln -s $_ROOT/distro/$_THIS_CORE/acquia-$_SMALLCORE7/sites /home/$_USERFTP/platforms/$_THIS_CORE/acquia-$_SMALLCORE7
+  if [ -d "$_ROOT/distro/$_THIS_CORE/acquia-$_ACQUIA_SEVEN/sites" ] ; then
+    if [ ! -L "/home/$_USERFTP/platforms/$_THIS_CORE/acquia-$_ACQUIA_SEVEN" ] ; then
+      ln -s $_ROOT/distro/$_THIS_CORE/acquia-$_ACQUIA_SEVEN/sites /home/$_USERFTP/platforms/$_THIS_CORE/acquia-$_ACQUIA_SEVEN
     fi
   fi
   if [ -d "$_ROOT/distro/$_THIS_CORE/pressflow-$_DRUPAL5/sites" ] ; then

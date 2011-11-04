@@ -63,6 +63,7 @@ standard production settings.
 
 * Debian 6.0 Squeeze (recommended) minimal OS 32/64bit fresh install, or
 * Debian 5.0 Lenny minimal OS 32/64bit fresh install, or
+* Ubuntu Oneiric 11.10 minimal OS 32/64bit fresh install, or
 * Ubuntu Natty 11.04 minimal OS 32/64bit fresh install, or
 * Ubuntu Maverick 10.10 minimal OS 32/64bit fresh install, or
 * Ubuntu Lucid 10.04 minimal OS 32/64bit fresh install, or
@@ -98,25 +99,25 @@ standard production settings.
 Octopus can install the platforms listed below:
 
  Acquia 6.22 (int) ------------ http://bit.ly/acquiadrupal
- Acquia 7.7.6 ----------------- http://bit.ly/acquiadrupal
- Acquia Commons 2.0 ----------- http://acquia.com/drupalcommons
- CiviCRM 3.4.5 ---------------- http://civicrm.org
- CiviCRM 4.0.5 ---------------- http://civicrm.org
+ Acquia 7.9.8 ----------------- http://bit.ly/acquiadrupal
+ Acquia Commons 2.2 ----------- http://acquia.com/drupalcommons
+ CiviCRM 3.4.7 ---------------- http://civicrm.org
+ CiviCRM 4.0.7 ---------------- http://civicrm.org
+ Commerce Kickstart 1.0-rc4 --- http://drupalcommerce.org
  Conference 1.0-beta2 --------- http://usecod.com
  Drupal 5.23 Pressflow -------- http://pressflow.org
  Drupal 6.22 Pressflow (int) -- http://pressflow.org
- Drupal 7.8 ------------------- http://drupal.org/drupal-7.0
- Drupal Commerce 1.0 ---------- http://drupalcommerce.org
+ Drupal 7.9 ------------------- http://drupal.org/drupal-7.0
  Feature Server --------------- http://bit.ly/fserver
  Managing News 1.2 ------------ http://managingnews.com
  NodeStream 1.0 --------------- http://nodestream.org
  Open Atrium 1.0 -------------- http://openatrium.com
  Open Enterprise 1.0-beta3 ---- http://leveltendesign.com/enterprise
  OpenChurch 1.21 -------------- http://openchurchsite.com
- OpenPublic 1.0-beta2 --------- http://openpublicapp.com
+ OpenPublic 1.0-beta3 --------- http://openpublicapp.com
  OpenScholar 2.0-beta11 ------- http://openscholar.harvard.edu
  ProsePoint 0.40 6.22 --------- http://prosepoint.org
- Ubercart 6.x-2.6 (int) ------- http://ubercart.org
+ Ubercart 6.x-2.7 (int) ------- http://ubercart.org
  Videola 1.0-alpha1 ----------- http://videola.tv
 
 All 5/6 platforms have been enhanced using Pressflow Drupal core.
@@ -141,12 +142,13 @@ added to all 6.x platforms:
  dbtuner-6.x-1.x-dev
  filefield_nginx_progress-6.x-1.4
  fpa-6.x-2.3
- imageinfo_cache-6.x-1.x-dev
+ httprl-6.x-1.2
+ imageinfo_cache-6.x-2.0
  login_security-6.x-1.x-dev
  private_upload-6.x-1.x-dev
  readonlymode-6.x-1.x-dev
  robotstxt-6.x-1.x-dev
- seckit-6.x-1.1
+ seckit-6.x-1.3
  securesite-6.x-2.4
  site_verify-6.x-1.0
  textile-6.x-2.4
@@ -158,7 +160,7 @@ added to all 6.x platforms:
 The Drupal 7.x platforms come with contrib modules:
 
  admin-7.x-2.0-beta3
- agrcache-7.x-1.0-alpha2
+ agrcache-7.x-1.0
  backup_migrate-7.x-2.2
  blockcache_alter-7.x-1.x-dev
  boost-7.x-1.x-dev
@@ -168,12 +170,14 @@ The Drupal 7.x platforms come with contrib modules:
  filefield_nginx_progress-7.x-1.x-dev
  flood_control-7.x-1.x-dev
  fpa-7.x-2.0
+ httprl-7.x-1.2
+ readonlymode-7.x-1.0-beta1
  robotstxt-7.x-1.x-dev
- seckit-7.x-1.2
+ seckit-7.x-1.3
  site_verify-7.x-1.0
  textile-7.x-2.0-rc9
  variable_clean-7.x-1.x-dev
- vars-7.x-2.0-alpha7
+ vars-7.x-2.0-alpha10
  + theme rubik-7.x-4.0-beta6
 
 

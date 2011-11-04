@@ -23,7 +23,7 @@
 _PERMISSIONS=YES
 _MODULES=YES
 _MODULES_ON="syslog cache path_alias_cache robotstxt filefield_nginx_progress"
-_MODULES_OFF="dblog update devel cookie_cache_bypass poormanscron supercron expire purge"
+_MODULES_OFF="dblog update l10n_update devel cookie_cache_bypass poormanscron supercron expire purge"
 
 
 ###-------------SYSTEM-----------------###
@@ -66,7 +66,7 @@ if [ -d "$Plr/cache/normal" ] ; then
   chown -R $_THIS_HM_USER:www-data $Plr/cache
   chmod -R 2777 $Plr/cache
 fi
-if [ ! -d "$Plr/cache/normal" ] ; then
+if [ ! -d "$Plr/cache/mobile-smart" ] ; then
   mkdir -p $Plr/cache/{normal,perm,mobile-tablet,mobile-smart,mobile-other}
   chown -R $_THIS_HM_USER:www-data $Plr/cache
   chmod -R 2777 $Plr/cache
@@ -182,9 +182,9 @@ fi
 fix_modules()
 {
 if [ "$_MODULES" = "YES" ]; then
-      searchStringA="-7."
+      searchStringA="off-7."
       searchStringB="-5."
-      searchStringC="openpublic"
+      searchStringC="openpublic-off"
       case $Dir in
         *"$searchStringA"*) ;;
         *"$searchStringB"*) ;;
@@ -224,6 +224,7 @@ if [ "$_PERMISSIONS" = "YES" ]; then
       chown -R $_THIS_HM_USER.ftp:users $Plr/sites/all/{modules,themes,libraries}/* &> /dev/null
       find $Plr/sites/all/{modules,themes,libraries} -type d -exec chmod 02775 {} \; &> /dev/null
       find $Plr/sites/all/{modules,themes,libraries} -type f -exec chmod 0664 {} \; &> /dev/null
+      chmod 775 $Plr/sites/all/modules/print/lib/wkhtmltopdf* &> /dev/null
 fi
 }
 
@@ -434,9 +435,11 @@ do
       fi
       if [ -d "$_THIS_HM_SITE" ] ; then
         cd $_THIS_HM_SITE
-        su -s /bin/bash $_THIS_HM_USER -c "drush vset --always-set site_footer 'Daily Usage Monitor | Disk <strong>$HomSizH</strong> MB | Databases <strong>$SumDatH</strong> MB' &> /dev/null"
-        su -s /bin/bash $_THIS_HM_USER -c "drush vset --always-set hosting_queue_cron_frequency 3600 &> /dev/null"
-        su -s /bin/bash $_THIS_HM_USER -c "drush vset --always-set hosting_cron_use_backend 0 &> /dev/null"
+        su -s /bin/bash $_THIS_HM_USER -c "drush vset --always-set site_footer 'Daily Usage Monitor | Disk <strong>$HomSizH</strong> MB | Databases <strong>$SumDatH</strong> MB | <strong>$_CLIENT_CORES</strong> C' &> /dev/null"
+        if [ ! -e "$User/log/custom_cron" ] ; then
+          su -s /bin/bash $_THIS_HM_USER -c "drush vset --always-set hosting_queue_cron_frequency 3600 &> /dev/null"
+          su -s /bin/bash $_THIS_HM_USER -c "drush vset --always-set hosting_cron_use_backend 0 &> /dev/null"
+        fi
       fi
       echo Done for $User
     else
@@ -477,8 +480,8 @@ if test -f /var/xdrago/log/optimize_mysql_ao.pid ; then
   touch /var/xdrago/log/wait-counter
   exit
 else
-  touch /var/xdrago/log/optimize_mysql_ao.pid
-  touch /var/run/octopus_barracuda.pid
+  #touch /var/xdrago/log/optimize_mysql_ao.pid
+  #touch /var/run/octopus_barracuda.pid
   sleep 60
   action >/var/xdrago/log/usage/usage-$_NOW.log 2>&1
   killall memcached &> /dev/null
@@ -494,8 +497,8 @@ else
   sleep 2
   rm -f /var/lib/redis/*
   invoke-rc.d redis-server restart 2>&1
-  rm -f /var/xdrago/log/optimize_mysql_ao.pid
-  rm -f /var/run/octopus_barracuda.pid
+  #rm -f /var/xdrago/log/optimize_mysql_ao.pid
+  #rm -f /var/run/octopus_barracuda.pid
 fi
 
 ###--------------------###

@@ -62,6 +62,7 @@ _CIVICRM6=EDIT_CIVICRM6
 _CIVICRM7=EDIT_CIVICRM7
 _VIDEOLA=EDIT_VIDEOLA
 _OPENCHURCH=EDIT_OPENCHURCH
+_ACQUIA_SEVEN=EDIT_ACQUIA_SEVEN
 
 
 ###---### main config
@@ -278,7 +279,7 @@ download_textile () {
 # download_o_contrib_seven
 download_o_contrib_seven () {
   wget -q -U iCab http://ftp.drupal.org/files/projects/admin-7.x-2.0-beta3.tar.gz
-  wget -q -U iCab http://ftp.drupal.org/files/projects/agrcache-7.x-1.0-alpha2.tar.gz
+  wget -q -U iCab http://ftp.drupal.org/files/projects/agrcache-7.x-1.0.tar.gz
   wget -q -U iCab http://ftp.drupal.org/files/projects/backup_migrate-7.x-2.2.tar.gz
   wget -q -U iCab http://ftp.drupal.org/files/projects/blockcache_alter-7.x-1.x-dev.tar.gz
   wget -q -U iCab http://ftp.drupal.org/files/projects/boost-7.x-1.x-dev.tar.gz
@@ -288,13 +289,17 @@ download_o_contrib_seven () {
   wget -q -U iCab http://ftp.drupal.org/files/projects/filefield_nginx_progress-7.x-1.x-dev.tar.gz
   wget -q -U iCab http://ftp.drupal.org/files/projects/flood_control-7.x-1.x-dev.tar.gz
   wget -q -U iCab http://ftp.drupal.org/files/projects/fpa-7.x-2.0.tar.gz
+  wget -q -U iCab http://ftp.drupal.org/files/projects/httprl-7.x-1.2.tar.gz
+  wget -q -U iCab http://ftp.drupal.org/files/projects/readonlymode-7.x-1.0-beta1.tar.gz
   wget -q -U iCab http://ftp.drupal.org/files/projects/robotstxt-7.x-1.x-dev.tar.gz
-  wget -q -U iCab http://ftp.drupal.org/files/projects/seckit-7.x-1.2.tar.gz
+  wget -q -U iCab http://ftp.drupal.org/files/projects/seckit-7.x-1.3.tar.gz
   wget -q -U iCab http://ftp.drupal.org/files/projects/site_verify-7.x-1.0.tar.gz
   wget -q -U iCab http://ftp.drupal.org/files/projects/textile-7.x-2.0-rc9.tar.gz
   wget -q -U iCab http://ftp.drupal.org/files/projects/variable_clean-7.x-1.x-dev.tar.gz
-  wget -q -U iCab http://ftp.drupal.org/files/projects/vars-7.x-2.0-alpha7.tar.gz
+  wget -q -U iCab http://ftp.drupal.org/files/projects/vars-7.x-2.0-alpha10.tar.gz
   if [ "$_TEST_MODE" = "ON" ] ; then
+    wget -q -U iCab http://ftp.drupal.org/files/projects/expire-7.x-1.x-dev.tar.gz
+    wget -q -U iCab http://ftp.drupal.org/files/projects/purge-7.x-1.x-dev.tar.gz
     wget -q -U iCab http://ftp.drupal.org/files/projects/nginx_accel_redirect-7.x-1.0.tar.gz
   else
     rm -f -r nginx_accel_redirect*
@@ -318,13 +323,14 @@ download_o_contrib_six () {
   wget -q -U iCab http://ftp.drupal.org/files/projects/dbtuner-6.x-1.x-dev.tar.gz
   wget -q -U iCab http://ftp.drupal.org/files/projects/filefield_nginx_progress-6.x-1.4.tar.gz
   wget -q -U iCab http://ftp.drupal.org/files/projects/fpa-6.x-2.3.tar.gz
+  wget -q -U iCab http://ftp.drupal.org/files/projects/httprl-6.x-1.2.tar.gz
   wget -q -U iCab http://ftp.drupal.org/files/projects/image-6.x-1.x-dev.tar.gz
-  wget -q -U iCab http://ftp.drupal.org/files/projects/imageinfo_cache-6.x-1.x-dev.tar.gz
+  wget -q -U iCab http://ftp.drupal.org/files/projects/imageinfo_cache-6.x-2.0.tar.gz
   wget -q -U iCab http://ftp.drupal.org/files/projects/login_security-6.x-1.x-dev.tar.gz
   wget -q -U iCab http://ftp.drupal.org/files/projects/private_upload-6.x-1.x-dev.tar.gz
   wget -q -U iCab http://ftp.drupal.org/files/projects/readonlymode-6.x-1.x-dev.tar.gz
   wget -q -U iCab http://ftp.drupal.org/files/projects/robotstxt-6.x-1.x-dev.tar.gz
-  wget -q -U iCab http://ftp.drupal.org/files/projects/seckit-6.x-1.1.tar.gz
+  wget -q -U iCab http://ftp.drupal.org/files/projects/seckit-6.x-1.3.tar.gz
   wget -q -U iCab http://ftp.drupal.org/files/projects/securesite-6.x-2.4.tar.gz
   wget -q -U iCab http://ftp.drupal.org/files/projects/site_verify-6.x-1.0.tar.gz
   wget -q -U iCab http://ftp.drupal.org/files/projects/textile-6.x-2.4.tar.gz
@@ -333,7 +339,7 @@ download_o_contrib_six () {
   wget -q -U iCab http://ftp.drupal.org/files/projects/views404-6.x-1.x-dev.tar.gz
   if [ "$_TEST_MODE" = "ON" ] ; then
     wget -q -U iCab http://ftp.drupal.org/files/projects/expire-6.x-1.0.tar.gz
-    wget -q -U iCab http://ftp.drupal.org/files/projects/purge-6.x-1.2.tar.gz
+    wget -q -U iCab http://ftp.drupal.org/files/projects/purge-6.x-1.3.tar.gz
     wget -q -U iCab http://ftp.drupal.org/files/projects/nginx_accel_redirect-6.x-1.5.tar.gz
   else
     rm -f -r expire*
@@ -481,12 +487,12 @@ fi
 ###---### Distributions full names
 #
 _F_ACQUIA="Acquia $_SMALLCORE6 P.$_THIS_CORE"
-_F_ACQUIA_SEVEN="Acquia 7.7.6 P.$_THIS_CORE"
+_F_ACQUIA_SEVEN="Acquia $_ACQUIA_SEVEN P.$_THIS_CORE"
 _F_ATRIUM="Atrium 1.0 P.$_THIS_CORE"
 _F_DRUPAL5="Drupal $_DRUPAL5 P.$_THIS_CORE"
 _F_DRUPAL6="Drupal $_SMALLCORE6 P.$_THIS_CORE"
 _F_DRUPAL7="Drupal $_SMALLCORE7 P.$_THIS_CORE"
-_F_COMMERCE="Commerce 1.0 $_SMALLCORE7 P.$_THIS_CORE"
+_F_COMMERCE="Commerce Kickstart 1.0-rc4 P.$_THIS_CORE"
 _F_COMMONS="Acquia Commons $_COMMONS P.$_THIS_CORE"
 _F_FSERVER="Feature Server $_SMALLCORE6 P.$_THIS_CORE"
 _F_MANAGINGNEWS="MNews $_MANAGINGNEWS P.$_THIS_CORE"
@@ -494,8 +500,8 @@ _F_NODESTREAM="NodeStream $_NODESTREAM P.$_THIS_CORE"
 _F_OPENPUBLISH="OpenPublish $_OPENPUBLISH P.$_THIS_CORE"
 _F_OPENSCHOLAR="OpenScholar $_OPENSCHOLAR P.$_THIS_CORE"
 _F_PROSEPOINT="Prosepoint $_PROSEPOINT P.$_THIS_CORE"
-_F_UBERCART="Ubercart 2.6 $_SMALLCORE6 P.$_THIS_CORE"
-_F_OPENPUBLIC="OpenPublic beta2 $_SMALLCORE7 P.$_THIS_CORE"
+_F_UBERCART="Ubercart 2.7 $_SMALLCORE6 P.$_THIS_CORE"
+_F_OPENPUBLIC="OpenPublic beta3 $_SMALLCORE7 P.$_THIS_CORE"
 _F_COD="Conference $_COD P.$_THIS_CORE"
 _F_OPENENTERPRISE="Open Enterprise $_OPENENTERPRISE P.$_THIS_CORE"
 _F_CIVICRM6="CiviCRM $_CIVICRM6 P.$_THIS_CORE"
@@ -637,28 +643,27 @@ fi
 ###---### Acquia Seven
 #
 if [ "$_PLATFORMS_LIST" = "ALL" ] || [[ $_PLATFORMS_LIST =~ AQ7 ]] ; then
-if [ ! -d "$_ROOT/distro/$_THIS_CORE/acquia-$_SMALLCORE7" ] ; then
+if [ ! -d "$_ROOT/distro/$_THIS_CORE/acquia-$_ACQUIA_SEVEN" ] ; then
 if [ "$_CLIENT_CORES" -ge "1" ] ; then
 echo " "
 if prompt_yes_no "$_F_ACQUIA_SEVEN - http://bit.ly/acquiadrupal" ; then
 true
 msg "STATUS: $_F_ACQUIA_SEVEN install in progress, please wait..."
 mrun "sleep 2"
-_CORE_DISTRO="$_CORE/acquia-$_SMALLCORE7"
+_CORE_DISTRO="$_CORE/acquia-$_ACQUIA_SEVEN"
 if [ ! -d "$_CORE_DISTRO" ] ; then
   cd $_CORE
-  git clone git://git.acquia.com/drupal/branches/7.x.git $_CORE/acquia-$_SMALLCORE7 &> /dev/null
-  cd $_CORE/acquia-$_SMALLCORE7
-  rm -f $_CORE/acquia-$_SMALLCORE7/*.txt
+  git clone git://git.acquia.com/drupal/branches/7.x.git $_CORE/acquia-$_ACQUIA_SEVEN &> /dev/null
+  cd $_CORE/acquia-$_ACQUIA_SEVEN
+  rm -f $_CORE/acquia-$_ACQUIA_SEVEN/*.txt
   ln -s $_CORE/o_contrib_seven modules/o_contrib_seven
-  rm -f -r $_CORE/acquia-$_SMALLCORE7/profiles/minimal
-  rm -f -r $_CORE/acquia-$_SMALLCORE7/profiles/testing
-  rm -f -r $_CORE/acquia-$_SMALLCORE7/profiles/standard
+  rm -f -r $_CORE/acquia-$_ACQUIA_SEVEN/profiles/minimal
+  rm -f -r $_CORE/acquia-$_ACQUIA_SEVEN/profiles/testing
   create_dirs
   themes_for_d7
 fi
-mkdir -p $_ROOT/distro/$_THIS_CORE/acquia-$_SMALLCORE7
-cd $_ROOT/distro/$_THIS_CORE/acquia-$_SMALLCORE7
+mkdir -p $_ROOT/distro/$_THIS_CORE/acquia-$_ACQUIA_SEVEN
+cd $_ROOT/distro/$_THIS_CORE/acquia-$_ACQUIA_SEVEN
 create_symlinks
 create_d7_symlinks
 rm -f boost_stats.php
@@ -1094,6 +1099,8 @@ if [ ! -d "$_CORE_DISTRO" ] ; then
     mv drupal-7.7 commerce-$_COMMERCE-$_SMALLCORE7
   elif [ -d "$_CORE/drupal-7.8" ] ; then
     mv drupal-7.8 commerce-$_COMMERCE-$_SMALLCORE7
+  elif [ -d "$_CORE/drupal-7.9" ] ; then
+    mv drupal-7.9 commerce-$_COMMERCE-$_SMALLCORE7
   fi
   wget -q -U iCab http://ftp.drupal.org/files/projects/$_DRUPAL7.tar.gz
   tar -xzf $_DRUPAL7.tar.gz
@@ -1150,6 +1157,8 @@ if [ ! -d "$_CORE_DISTRO" ] ; then
   rm -f commons-$_COMMONS.tar.gz
   if [ -d "$_CORE/acquia_commons" ] ; then
     mv $_CORE/acquia_commons $_CORE/acquia_commons-$_COMMONS
+  elif [ -d "$_CORE/commons-$_COMMONS" ] ; then
+    mv $_CORE/commons-$_COMMONS $_CORE/acquia_commons-$_COMMONS
   else
     mv $_CORE/commons $_CORE/acquia_commons-$_COMMONS
   fi
@@ -1812,6 +1821,7 @@ cd $_CORE
 find . -name .svn -exec rm -rf {} \; &> /dev/null
 find . -name .bzr -exec rm -rf {} \; &> /dev/null
 find . -name .git -exec rm -rf {} \; &> /dev/null
+find . -name "._*" -type f | xargs rm -rf
 
 
 ###---### Save & verify platforms
@@ -1857,9 +1867,9 @@ if [ -d "$_ROOT/distro/$_THIS_CORE/acquia-$_SMALLCORE6" ] ; then
     mrun "sleep 5"
   fi
 fi
-if [ -d "$_ROOT/distro/$_THIS_CORE/acquia-$_SMALLCORE7" ] ; then
-  if [ ! -e "$_ROOT/distro/$_THIS_CORE/acquia-$_SMALLCORE7/drushrc.php" ] ; then
-    $DRUSHC php-script make_platform "$_F_ACQUIA_SEVEN" acquia $_ROOT/distro/$_THIS_CORE/acquia-$_SMALLCORE7 &> /dev/null
+if [ -d "$_ROOT/distro/$_THIS_CORE/acquia-$_ACQUIA_SEVEN" ] ; then
+  if [ ! -e "$_ROOT/distro/$_THIS_CORE/acquia-$_ACQUIA_SEVEN/drushrc.php" ] ; then
+    $DRUSHC php-script make_platform "$_F_ACQUIA_SEVEN" acquia $_ROOT/distro/$_THIS_CORE/acquia-$_ACQUIA_SEVEN &> /dev/null
     mrun "sleep 5"
   fi
 fi
