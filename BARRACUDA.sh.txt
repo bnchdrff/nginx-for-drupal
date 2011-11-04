@@ -44,7 +44,7 @@
 ###
 ### Enter your valid e-mail address below.
 ###
-_MY_EMAIL="notify@omega8.cc"
+_MY_EMAIL="bc@thermitic.net"
 
 
 ###----------------------------------------###
@@ -78,7 +78,7 @@ _MY_EMAIL="notify@omega8.cc"
 ### _XTRAS_LIST=ALL
 ### _XTRAS_LIST="CHV CGP CSF"
 ###
-_XTRAS_LIST="CHV CSF"
+_XTRAS_LIST="PDS SLR CHV BDD CGP WMN CSF"
 
 
 ###----------------------------------------###
@@ -113,7 +113,7 @@ _HTTP_WILDCARD=NO
 ###
 ### _AUTOPILOT=YES
 ###
-_AUTOPILOT=NO
+_AUTOPILOT=YES
 
 
 ###----------------------------------------###
@@ -126,7 +126,7 @@ _AUTOPILOT=NO
 ###
 ### _DEBUG_MODE=YES
 ###
-_DEBUG_MODE=NO
+_DEBUG_MODE=YES
 
 
 ###----------------------------------------###
@@ -279,9 +279,9 @@ _FORCE_GIT_MIRROR=""
 ### will disable the DNS test completely
 ### below in _DNS_SETUP_TEST).
 ###
-_MY_OWNIP=""
-_MY_HOSTN=""
-_MY_FRONT=""
+_MY_OWNIP="74.126.0.67"
+_MY_HOSTN="inst9.thermitic.net"
+_MY_FRONT="aegir.inst9.thermitic.net"
 
 
 ###----------------------------------------###
