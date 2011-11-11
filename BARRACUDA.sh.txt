@@ -78,7 +78,7 @@ _MY_EMAIL="bc@thermitic.net"
 ### _XTRAS_LIST=ALL
 ### _XTRAS_LIST="CHV CGP CSF"
 ###
-_XTRAS_LIST="PDS SLR CHV BDD CGP WMN CSF"
+_XTRAS_LIST="PDS CHV BDD CGP CSF"
 
 
 ###----------------------------------------###
